@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js Study 03</title>
+  <meta name="description" content="Vue.js Study 03">
+  <meta name="author" content="SitePoint">
+</head>
+
+<body>
+  <h1>Vue.js Template</h1>
+  <a href="https://jp.vuejs.org/v2/guide/syntax.html#生の-HTML">テンプレート構文 - Vue.js</a>
+  <div id="example">
+    <h2>text</h2>
+    <p>Message: {{ msg }}</p>
+    <p v-once>This will never change: {{ msg }}</p>
+
+    <h2>rawHtml</h2>
+    <div>{{rawHtml}}</div>
+    <div v-html="rawHtml">{{rawHtml}}</div>
+
+    <h2>bind</h2>
+    <div v-bind:id="dynamicId">dynamicId</div>
+    <div :id="dynamicId">dynamicId</div>
+    <button v-bind:disabled="isButtonDisabled">Button</button>
+    <a v-bind:href="href">Vue.js</a>
+
+    <h2>direct javascript</h2>
+    <p>1 + 1 = {{ 1 + 1 }}</p>
+
+    <h2>v- function</h2>
+    <p v-if="isDisplay">isDisplay</p>
+
+    <h2>v-on</h2>
+    <p v-on:click="onClick">click</p>
+    <p @click="onClick">click</p>
+    <form v-on:submit.prevent="onSubmit">
+      <input type="submit" value="submit">
+    </form>
+
+    <h2>filter</h2>
+    <p>mustache : {{ filter | lawerCase | addStr("123") }}</p>
+    <p>bind : <span v-bind:id="filter|lawerCase">change id</span></p>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

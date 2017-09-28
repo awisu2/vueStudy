@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js Study 05</title>
+  <meta name="description" content="Vue.js Study 05">
+  <meta name="author" content="SitePoint">
+</head>
+
+<body>
+  <h1>Vue.js Computed</h1>
+  <a href="https://jp.vuejs.org/v2/guide/components.html">コンポーネント - Vue.js</a>
+
+  <div id="example">
+    <component></component>
+    <component :my-count=5></component>
+    <component :my-count=10 @childmethod="childCallback">child</component>
+    <currency-input :value="123" @input="inputCallback"></currency-input>
+
+    <h2>local</h2>
+    <local></local>
+
+    <h2>bus</h2>
+    <bus></bus>
+    <bus></bus>
+
+    <h2>slot</h2>
+    <h3>slot none</h3>
+    <slot-none>
+      <p>slot-none line01</p>
+      <p>slot-none line02</p>
+    </slot-none>
+
+    <h3>slot one</h3>
+    <slot-one>
+      <p>slot-one line01</p>
+      <p>slot-one line02</p>
+    </slot-one>
+
+    <h3>slot name</h3>
+    <slot-name>
+      <p slot="a">slot-name A</p>
+      <p slot="b">slot-name B</p>
+      <p slot="c">slot-name C</p>
+      <p>slot-name Non</p>
+    </slot-name>
+
+    <h3>slot scope</h3>
+    <div class="parent">
+      <scope-slot>
+        <template scope="props">
+          <span>hello from parent</span>
+          <span>{{ props.text }}</span>
+        </template>
+      </scope-slot>
+    </div>
+
+    <h3>dynamic component</h3>
+    <component :is='dynamic' @dynamicmethod="dynamicMethodCallback"></component>
+    <component :is='dynamic03'></component>
+
+    <h3>keep alive dynamic component</h3>
+    <keep-alive>
+      <component :is='dynamic' @dynamicmethod="dynamicMethodCallback"></component>
+    </keep-alive>
+
+    <h3>inline component</h3>
+    <inline-component inline-template>
+      <div>
+        <p>These are compiled as the component's own template.</p>
+        <p>Not parent's transclusion content.</p>
+      </div>  
+    </inline-component>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
